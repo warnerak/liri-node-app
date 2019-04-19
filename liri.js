@@ -1,10 +1,11 @@
 //Inquirer NPM for Prompting
+require("dotenv").config();
 var inquirer = require('inquirer');
 var axios = require("axios");
-require("dotenv").config();
 var keys = require("./keys.js");
 var Spotify = require('node-spotify-api');
 var spotify = new Spotify(keys.spotify);
+
 
 
 if (process.argv[2] === 'concert-this'){
@@ -25,6 +26,7 @@ inquirer
 
 
     .then(function(inquirerResponse) {
+      console.log(inquirerResponse.bandname);
       if (inquirerResponse.confirm) {
         console.log("Information for " + inquirerResponse.bandname + " is posted below.");
         var band = inquirerResponse.bandname;
