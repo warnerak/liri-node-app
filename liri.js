@@ -1,8 +1,10 @@
 //Inquirer NPM for Prompting
 require('dotenv').config();
 var inquirer = require('inquirer');
+var fs = require('file-system');
 var axios = require('axios');
 var keys = require('./keys.js');
+var moment = require('moment');
 var Spotify = require('node-spotify-api');
 var spotify = new Spotify({
   id: 'eb633129d0f34ad8aec547f721b114e8',
@@ -43,7 +45,7 @@ if (process.argv[2] === 'concert-this') {
             response.data.forEach(concert => {
               console.log(concert.venue.name);
               console.log(concert.venue.city + ', ' + concert.venue.region);
-              console.log(concert.datetime);
+              console.log(moment(concert.datetime.slice(0, 10), 'YYYY-MM-DD').format("MM/DD/YYYY"));
               console.log('---------------------------');
             });
           });
@@ -51,7 +53,9 @@ if (process.argv[2] === 'concert-this') {
         console.log("I'm sorry, please come again.");
       }
     });
-} else if (process.argv[2] === 'spotify-this-song') {
+} 
+
+else if (process.argv[2] === 'spotify-this-song') {
   inquirer
     .prompt([
       {
@@ -60,35 +64,13 @@ if (process.argv[2] === 'concert-this') {
           'Please enter in the name of the song you would like to search:',
         name: 'songname'
       },
-      {
-        type: 'confirm',
-        message: 'Are you sure:',
-        name: 'confirm',
-        default: true
-      }
     ])
+    var choice = inquirerResponse.songname
+    .then(songAPI(choice));
+    
+} 
 
-    .then(function(inquirerResponse) {
-      if (inquirerResponse.confirm) {
-        console.log(
-          'Information for ' + inquirerResponse.songname + ' is posted below.'
-        );
-        var song = inquirerResponse.songname;
-        spotify.search({ type: 'track', query: song }, function(err, data) {
-          if (err) {
-            return console.log(err);
-          }
-          console.log("Track Name: " + data.tracks.items[0].name);
-          console.log("Artist Name: " + data.tracks.items[0].artists[0].name);
-          console.log("Album: " + data.tracks.items[0].album.name);
-          console.log("Preview Link: " + data.tracks.items[0].href);
-          // console.log(data);
-        });
-      } else {
-        console.log("I'm sorry, please come again.");
-      }
-    });
-} else if (process.argv[2] === 'movie-this') {
+else if (process.argv[2] === 'movie-this') {
   inquirer
     .prompt([
       // Here we create a basic text prompt.
@@ -138,4 +120,51 @@ if (process.argv[2] === 'concert-this') {
         console.log("I'm sorry, please come again.");
       }
     });
+}
+
+else if (process.argv[2] === "do-what-it-says") {
+  fs.readFile("random.txt", "utf8", function(err, data) {
+    if (err) {
+      return console.log(err);
+    }
+    else{
+      data = data.split(",");
+      var command = data[0];
+      var query = data[1];
+      if (command === "spotify-this-song"){
+        dataTest = true;
+        songAPI(query);
+      }
+      console.log(data)
+    }
+  })
+};
+
+var dataTest = false;
+var song
+
+function songAPI(inquirerResponse) {
+  if (dataTest === true){
+    song = inquirerResponse;
+  }
+  else if (inquirerResponse) {
+    console.log(
+      'Information for ' + inquirerResponse + ' is posted below.'
+    );
+    song = inquirerResponse;
+  }
+   else{
+    console.log("I'm sorry, please come again.")
+  
+};
+spotify.search({ type: 'track', query: song }, function(err, data) {
+  if (err) {
+    return console.log(err);
+  }
+  console.log("Track Name: " + data.tracks.items[0].name);
+  console.log("Artist Name: " + data.tracks.items[0].artists[0].name);
+  console.log("Album: " + data.tracks.items[0].album.name);
+  console.log("Preview Link: " + data.tracks.items[0].href);
+  // console.log(data);
+})
 }
