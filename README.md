@@ -44,7 +44,7 @@ To use LIRI you must enter in one of the four commands:
 
 - If there isn't any upcoming events for the given artist, an error message will show.
 
-![Screenshot](C:\Users\Anna Warner\Documents\Class\Homework_Assignments\Assignment_10\liri-node-app\images\LIRI_SpotifyThisSong.PNG)
+<img src="https://github.com/warnerak/liri-node-app/blob/master/images/LIRI_ConcertThis.PNG" />
 
 2. spotify-this-song command:
    Enter in your terminal: node liri.js spotify-this-song '<song title>'.
@@ -57,7 +57,7 @@ To use LIRI you must enter in one of the four commands:
 
 Note: if no song is provided then your program will default to "The Sign" by Ace of Base.
 
-<img src="enter in my screen-shot" />
+<img src="https://github.com/warnerak/liri-node-app/blob/master/images/LIRI_SpotifyThisSong.PNG" />
 
 3. movie-this command:
    Enter in your terminal: node liri.js movie-this '<movie title>'
@@ -74,11 +74,15 @@ Note: if no song is provided then your program will default to "The Sign" by Ace
 
 \*If the user doesn't select a movie, LIRI will show details for "Mr. Nobody!"
 
+<img src="https://github.com/warnerak/liri-node-app/blob/master/images/LIRI_MovieThis.PNG" />
+
 4. do-what-it-says command
    node liri.js do-what-it-says This command will use the fs Node package to read a random.txt file to call one of LIRI's commands
 
 - Log File
   All commands sent to LIRI will be logged in the log.txt file. You can see past search responses along with any errors encountered in this file
+
+<img src="https://github.com/warnerak/liri-node-app/blob/master/images/LIRI_DoWhatItSays.PNG" />
 
 Functionality
 See the full functionality here: ![movie!](https://raw.githubusercontent.com/kenzrad/liri-node-app/master/screen-prints/functionality.mov)
