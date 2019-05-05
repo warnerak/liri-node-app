@@ -1,5 +1,6 @@
-**LIRI Bot**
-Overview
+#LIRI Bot
+
+**Overview**
 LIRI is a Language Interpretation and Recognition Interface. LIRI will be a command line node app that takes in parameters and gives you back data.
 
 **Packages**
@@ -24,7 +25,7 @@ secret: process.env.SPOTIFY_SECRET
 Code the following inside .env:
 (note: you will need to replace your-spotify-id and your-spotify-secret with your generated ID and secret from the spotify developer API)
 
-# Spotify API keys
+**Spotify API keys**
 
 SPOTIFY_ID=your-spotify-id
 SPOTIFY_SECRET=your-spotify-secret
