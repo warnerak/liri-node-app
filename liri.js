@@ -2,14 +2,10 @@
 require('dotenv').config();
 var fs = require('file-system');
 var axios = require('axios');
-// var keys = require('./keys.js');
+var keys = require('./keys.js');
 var moment = require('moment');
 var Spotify = require('node-spotify-api');
-var spotify = new Spotify({
-  id: 'eb633129d0f34ad8aec547f721b114e8',
-  secret: 'db9fcd815b4b4c7cbcdf966ec725998f'
-});
-
+var spotify = new Spotify(keys.spotify);
 
 var command = process.argv[2];
 var userInput = process.argv.slice(3).join(" ");
