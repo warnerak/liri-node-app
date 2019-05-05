@@ -1,4 +1,4 @@
-#LIRI Bot
+# LIRI Bot
 
 **Overview**
 LIRI is a Language Interpretation and Recognition Interface. LIRI will be a command line node app that takes in parameters and gives you back data.
@@ -31,6 +31,7 @@ SPOTIFY_ID=your-spotify-id
 SPOTIFY_SECRET=your-spotify-secret
 
 **Using LIRI**
+
 To use LIRI you must enter in one of the four commands:
 
 1. concert-this command:
