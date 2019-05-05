@@ -44,7 +44,7 @@ To use LIRI you must enter in one of the four commands:
 
 - If there isn't any upcoming events for the given artist, an error message will show.
 
-<img src="enter in my screen-shot" />
+![Screenshot](C:\Users\Anna Warner\Documents\Class\Homework_Assignments\Assignment_10\liri-node-app\images\LIRI_SpotifyThisSong.PNG)
 
 2. spotify-this-song command:
    Enter in your terminal: node liri.js spotify-this-song '<song title>'.
