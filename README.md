@@ -84,5 +84,5 @@ Note: if no song is provided then your program will default to "The Sign" by Ace
 
 <img src="https://github.com/warnerak/liri-node-app/blob/master/images/LIRI_DoWhatItSays.PNG" />
 
-Functionality
-See the full functionality here: ![movie!](https://raw.githubusercontent.com/kenzrad/liri-node-app/master/screen-prints/functionality.mov)
+### Functionality
+ [See the full functionality here](https://www.youtube.com/watch?v=yG1_cWKb1E0)
